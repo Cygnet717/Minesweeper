@@ -4,7 +4,7 @@
 
 .gamebox{
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: auto auto auto auto; /*4 autos means 4 columns*/
   background-color: black;
   padding: 10px;
   width: fit-content;
