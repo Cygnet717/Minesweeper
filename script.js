@@ -4,7 +4,7 @@ let mineField = [];
 
 function createMineField (size, numMines){
   for(let i=0; i<size; i++){
-    mineField = mineField.concat('_')
+    mineField = mineField.concat(0)
   };
   
   for(let j=0; j<numMines; j++){
@@ -16,10 +16,10 @@ function createMineField (size, numMines){
 function loadMineField(field){
   let randomLocation = Math.floor(Math.random()*Math.floor(field.length))
 
-  if(field[randomLocation]=== '**'){
+  if(field[randomLocation]=== 'b'){
     loadMineField(field)
   }else{
-    field[randomLocation]='**'
+    field[randomLocation]='b'
     return field
   }
 };
@@ -45,7 +45,7 @@ function cutMineFieldIntoRows(mineField){
     mineFieldRows[rowCount]=row
     rowCount++
   }
-  
+  console.log(mineFieldRows)
   return addNumbersToMineField(mineFieldRows)
 }
 
@@ -69,15 +69,29 @@ function addNumbersToMineField(rowed){
     }
 
     for(let j=0; j<curr.length; j++){
-      let count =0;
-      if()
-        //check all adjacent locations
-      
-        //add to count for each bomb in adjacent locations
-        //let i[j]=count;
-        //return;
+      if(curr[j] ===  'b'){
+        if(next){
+          
+          if(next[j-1]){next[j-1]+=1}
+          if(next[j+1]){next[j+1]+=1}//stop this from adding 1 to a string
+          next[j] +=1
+        }
+        if(prev){
+
+        }
+
+        /*const doesPlaceExist = [, curr[j-1], curr[j+1], prev[j-1], prev[j], prev[j+1]]
+        for(let k=0; k<doesPlaceExist.length; k++){
+          if(typeof doesPlaceExist[k] === 'number'){
+            console.log('adding')
+            doesPlaceExist[k]++
+          }
+        }*/
+      }
+
       
     }
+    
   }
 
   return console.log(rowed)
