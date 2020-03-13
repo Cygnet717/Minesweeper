@@ -10,7 +10,7 @@ function createMineField (size, numMines){
   for(let j=0; j<numMines; j++){
     loadMineField(mineField);
   };
-  return addNumbersToMineField(mineField);
+  return cutMineFieldIntoRows(mineField);
 };
 
 function loadMineField(field){
@@ -35,14 +35,30 @@ function shuffle(randomArray) {
   return randomArray;
 };
 
+//cut array for a 4 column gameboard with 5 rows
+function cutMineFieldIntoRows(mineField){
+  let mineFieldRows = [];
+  let rowCount = 0;
+  for(let i=0; rowCount<5; i+=4){
+    let row= [];
+    row = row.concat(mineField.slice(i, i+4))
+    mineFieldRows[rowCount]=row
+    rowCount++
+    console.log(rowCount)
+  }
+ //mineField = mineFieldRows;
+  
+  return console.log(mineFieldRows)
+}
 
 
-function addNumbersToMineField(mineField){
+
+/*function addNumbersToMineField(mineField){
   for(let i=0; i<mineField.length; i++){
     let count =0;
     if()
   }
-};
+};*/
 
 //populate game borad with numbers and bombs
 function fillGameBox(mineField){
