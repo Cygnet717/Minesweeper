@@ -45,11 +45,8 @@ function cutMineFieldIntoRows(mineField){
     mineFieldRows[rowCount]=row
     rowCount++
   }
-  console.log(mineFieldRows)
   return addNumbersToMineField(mineFieldRows)
 }
-
-
 
 function addNumbersToMineField(rowed){
   for(let i=0; i<rowed.length; i++){
@@ -82,32 +79,23 @@ function addNumbersToMineField(rowed){
         }
         if(typeof curr[j-1] === 'number'){curr[j-1] += 1}
         if(typeof curr[j+1] === 'number'){curr[j+1] += 1}
-
-        /*const doesPlaceExist = [, curr[j-1], curr[j+1], prev[j-1], prev[j], prev[j+1]]
-        for(let k=0; k<doesPlaceExist.length; k++){
-          if(typeof doesPlaceExist[k] === 'number'){
-            console.log('adding')
-            doesPlaceExist[k]++
-          }
-        }*/
       }
-
-      
     }
-    
   }
-
-  return console.log(rowed)
+  return fillGameBox(rowed)
 };
 
 //populate game borad with numbers and bombs
 function fillGameBox(mineField){
   console.log(mineField)
-  /*let gameBoxContents = '';
-  for (let i=0; i<mineField.length; i++){
-    gameBoxContents = gameBoxContents.concat(`<div class="grid-item">${mineField[i]}</div>`)
+  let gameBoxContents = '';
+  for(let i=0; i<mineField.length; i++){
+    for(let j=0; j<mineField[i].length; j++){
+      gameBoxContents = gameBoxContents.concat(`<div class="grid-item">${mineField[i][j]}</div>`)
+    }
   }
-  $('.gamebox').append(gameBoxContents)*/
+
+  $('.gamebox').append(gameBoxContents)
 }
 
 createMineField(20, 5);
