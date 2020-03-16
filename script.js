@@ -71,14 +71,17 @@ function addNumbersToMineField(rowed){
     for(let j=0; j<curr.length; j++){
       if(curr[j] ===  'b'){
         if(next){
-          
-          if(next[j-1]){next[j-1]+=1}
-          if(next[j+1]){next[j+1]+=1}//stop this from adding 1 to a string
-          next[j] +=1
+          if(typeof next[j-1] === 'number'){next[j-1] += 1}
+          if(typeof next[j+1] === 'number'){next[j+1] += 1}
+          if(typeof next[j] === 'number'){next[j] += 1}
         }
-        if(prev){
-
+        if(prev){ 
+          if(typeof prev[j-1] === 'number'){prev[j-1] += 1}
+          if(typeof prev[j+1] === 'number'){prev[j+1] += 1}
+          if(typeof prev[j] === 'number'){prev[j] += 1}
         }
+        if(typeof curr[j-1] === 'number'){curr[j-1] += 1}
+        if(typeof curr[j+1] === 'number'){curr[j+1] += 1}
 
         /*const doesPlaceExist = [, curr[j-1], curr[j+1], prev[j-1], prev[j], prev[j+1]]
         for(let k=0; k<doesPlaceExist.length; k++){
