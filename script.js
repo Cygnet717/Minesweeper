@@ -91,13 +91,27 @@ function fillGameBox(mineField){
   let gameBoxContents = '';
   for(let i=0; i<mineField.length; i++){
     for(let j=0; j<mineField[i].length; j++){
-      gameBoxContents = gameBoxContents.concat(`<div class="grid-item">${mineField[i][j]}</div>`)
+      gameBoxContents = gameBoxContents.concat(`<button value='${mineField[i][j]}' class="grid-item">${mineField[i][j]}</button>`)
     }
   }
 
   $('.gamebox').append(gameBoxContents)
 }
 
-createMineField(20, 5);
+//reveal box contents on click
 
-//fillGameBox(mineField);
+$(document).ready(function(){
+  console.log('ready')
+$('.grid-item').on('click', event=> {
+  //console.log(event.target)
+  if(event.target.value === 'b'){
+    $(event.target).css({'background-color': 'red'})
+  } else {
+    $(event.target).css({'background-color': 'black'})
+  }
+  
+})
+})
+
+
+createMineField(20, 5);
