@@ -87,7 +87,6 @@ function addNumbersToMineField(rowed){
 
 //populate game borad with numbers and bombs
 function fillGameBox(mineField){
-  console.log(mineField)
   let gameBoxContents = '';
   for(let i=0; i<mineField.length; i++){
     for(let j=0; j<mineField[i].length; j++){
@@ -101,16 +100,37 @@ function fillGameBox(mineField){
 //reveal box contents on click
 
 $(document).ready(function(){
-  console.log('ready')
-$('.grid-item').on('click', event=> {
-  //console.log(event.target)
-  if(event.target.value === 'b'){
-    $(event.target).css({'background-color': 'red'})
-  } else {
-    $(event.target).css({'background-color': 'black'})
-  }
+
+  //mouse controls
+  $('.grid-item').on('click', event=> {  
+    console.log(exploreFunctionToggle)
+    if(exploreFunctionToggle){
+      if(event.target.value === 'b'){
+      $(event.target).css({'background-color': 'red'})
+    } else {
+      $(event.target).css({'background-color': 'black'})
+    }
+    return false;
+    } else {
+      $(event.target).css({'background-color': 'orange', 'color': 'orange'})
+    }
+    
+  })
+
+  $('.grid-item').on('contextmenu', e=>{
+    e.preventDefault();
+    $(e.target).css({'background-color': 'orange', 'color': 'orange'})
+  })
+
+  //touch screen controls
+  let exploreFunctionToggle = true;
+
+  $('input[type=checkbox]').on('click', event=> {
+    exploreFunctionToggle = !exploreFunctionToggle
+  })
+
   
-})
+
 })
 
 
