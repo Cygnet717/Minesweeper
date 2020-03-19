@@ -97,13 +97,10 @@ function fillGameBox(mineField){
   $('.gamebox').append(gameBoxContents)
 }
 
-//reveal box contents on click
-
 $(document).ready(function(){
 
   //mouse controls
   $('.grid-item').on('click', event=> {  
-    console.log(exploreFunctionToggle)
     if(exploreFunctionToggle){
       if(event.target.value === 'b'){
       $(event.target).css({'background-color': 'red'})

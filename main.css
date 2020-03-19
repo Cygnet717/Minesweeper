@@ -96,6 +96,10 @@ input:checked + .slider:before {
   display: inline-block;
 }
 
+.instructionBox{
+  display: none;
+}
+
 .sliderBox{
   margin-left:auto;
   margin-right: auto;
@@ -105,8 +109,25 @@ input:checked + .slider:before {
   margin-top: 20px;
 }
 
+.bombCounter{
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  border: 5px solid black;
+  padding: 10px;
+  margin-top: 10px;
+}
+
 @media (hover: hover){
   .sliderBox{
     display: none;
+  }
+
+  .instructionBox{
+    display: block;
+    width: fit-content;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 20px;
   }
 }
