@@ -138,37 +138,23 @@ $(document).ready(function(){
       }
     }
     
-    /*if($(event.target).attr('class') !== 'grid-item flagged'){//if not flagged 
-      if(!exploreFunctionToggle){//if exploring
-        if(event.target.value === 'b'){//if value is a bomb
-          //end game
-          $(event.target).css({'background-color': 'red'})
-          $('.winLose').append('You Lose').css({
-              'color': 'red', 
-              'font-weight': 'bolder',
-              'border': '2px solid red'
-            })
-          $('.grid-item').css({'pointer-events': 'none'})
-        } else {
-          $(event.target).css({//not a bomb explore space
-              'background-color': 'black',
-              'color': 'white'
-            })
-        }
-        return false;
-      } else {//not exploring => flag it unflag it
-        
-      }
-    } else */
   })
 
   $('.grid-item').on('contextmenu', e=>{
     e.preventDefault();
-    bombCount = bombCount -1;
-    $('.bombCounter').empty();
-    $('.bombCounter').append(`Bombs Left: ${bombCount}`)
-    $(event.target).addClass('flagged')
-    $(e.target).css({'background-color': 'orange', 'color': 'orange'})
+    if($(event.target).attr('class') === 'grid-item flagged'){//it is flagged => unflag it
+      bombCount = bombCount +1;
+      $('.bombCounter').empty();
+      $('.bombCounter').append(`Bombs Left: ${bombCount}`)
+      $(event.target).removeClass('flagged')
+      $(event.target).css({'background-color': 'white', 'color': 'white'})
+    } else {//it is not flagged => flag it
+      bombCount = bombCount -1;
+      $('.bombCounter').empty();
+      $('.bombCounter').append(`Bombs Left: ${bombCount}`)
+      $(event.target).addClass('flagged')
+      $(event.target).css({'background-color': 'orange', 'color': 'orange'})
+    }
   })
 
   //touch screen controls
