@@ -101,34 +101,48 @@ $(document).ready(function(){
   $('.bombCounter').append(`Bombs Left: ${bombCount}`)
 
   //mouse controls
-  $('.grid-item').on('click', event=> {  
-
-    if(!exploreFunctionToggle){
-      if(event.target.value === 'b'){
-      $(event.target).css({'background-color': 'red'})
-      $('.winLose').append('You Lose').css({
-        'color': 'red', 
-        'font-weight': 'bolder',
-        'border': '2px solid red'
-      })
-      $('.grid-item').css({'pointer-events': 'none'})
-    } else {
-      $(event.target).css({
-        'background-color': 'black',
-        'color': 'white'
-      })
-    }
-    return false;
-    } else {
-      bombCount = bombCount -1;
+  $('.grid-item').on('click', event=> { 
+    
+    if($(event.target).attr('class') !== 'grid-item flagged'){//if not flagged 
+      if(!exploreFunctionToggle){//if exploring
+        if(event.target.value === 'b'){//if value is a bomb
+          //end game
+          $(event.target).css({'background-color': 'red'})
+          $('.winLose').append('You Lose').css({
+              'color': 'red', 
+              'font-weight': 'bolder',
+              'border': '2px solid red'
+            })
+          $('.grid-item').css({'pointer-events': 'none'})
+        } else {
+          $(event.target).css({//not a bomb explore space
+              'background-color': 'black',
+              'color': 'white'
+            })
+        }
+        return false;
+      } else {//not exploring => flag it
+        bombCount = bombCount -1;
+        $('.bombCounter').empty();
+        $('.bombCounter').append(`Bombs Left: ${bombCount}`)
+        $(event.target).addClass('flagged')
+        $(event.target).css({'background-color': 'orange', 'color': 'orange'})
+      }
+    } else if($(event.target).attr('class') === 'grid-item flagged'){//already flagged => unflag it
+      bombCount = bombCount +1;
       $('.bombCounter').empty();
       $('.bombCounter').append(`Bombs Left: ${bombCount}`)
-      $(event.target).css({'background-color': 'orange', 'color': 'orange'})
+      $(event.target).removeClass('flagged')
+      $(event.target).css({'background-color': 'white', 'color': 'white'})
     }
   })
 
   $('.grid-item').on('contextmenu', e=>{
     e.preventDefault();
+    bombCount = bombCount -1;
+    $('.bombCounter').empty();
+    $('.bombCounter').append(`Bombs Left: ${bombCount}`)
+    $(event.target).addClass('flagged')
     $(e.target).css({'background-color': 'orange', 'color': 'orange'})
   })
 
