@@ -93,7 +93,6 @@ function fillGameBox(mineField){
       gameBoxContents = gameBoxContents.concat(`<button value='${mineField[i][j]}' class="grid-item">${mineField[i][j]}</button>`)
     }
   }
-
   $('.gamebox').append(gameBoxContents)
 }
 
@@ -101,7 +100,7 @@ $(document).ready(function(){
 
   //mouse controls
   $('.grid-item').on('click', event=> {  
-    if(exploreFunctionToggle){
+    if(!exploreFunctionToggle){
       if(event.target.value === 'b'){
       $(event.target).css({'background-color': 'red'})
       $('.winLose').append('You Lose').css({
@@ -109,6 +108,7 @@ $(document).ready(function(){
         'font-weight': 'bolder',
         'border': '2px solid red'
       })
+      $('.grid-item').css({'pointer-events': 'none'})
     } else {
       $(event.target).css({'background-color': 'black'})
     }
@@ -116,7 +116,6 @@ $(document).ready(function(){
     } else {
       $(event.target).css({'background-color': 'orange', 'color': 'orange'})
     }
-    
   })
 
   $('.grid-item').on('contextmenu', e=>{
@@ -125,9 +124,17 @@ $(document).ready(function(){
   })
 
   //touch screen controls
-  let exploreFunctionToggle = true;
+  let exploreFunctionToggle = false;
 
   $('input[type=checkbox]').on('click', event=> {
+    exploreFunctionToggle = event.target.checked
+  })
+
+  $('.sliderBox').on('touchstart', event=> {
+    console.log('slide')
+    $('#checkbox').prop('checked', function( i, val ) {
+      return !val;
+    });
     exploreFunctionToggle = !exploreFunctionToggle
   })
 

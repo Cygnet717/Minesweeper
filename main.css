@@ -4,16 +4,19 @@
 
 h1{
   width: fit-content;
+  width: max-content;
   margin-left: auto;
   margin-right: auto;
 }
 
 .gamebox{
   display: grid;
-  grid-template-columns: auto auto auto auto; /*4 autos means 4 columns*/
+  grid-template-columns: 60px 60px 60px 60px; /*4 autos means 4 columns*/
   background-color: black;
   padding: 10px;
+
   width: fit-content;
+  width: max-content;
   margin-left: auto;
   margin-right: auto;
 }
@@ -26,6 +29,16 @@ h1{
   font-size: 30px;
   padding: 20px;
   background-color: white;
+}
+
+.loseGrid-item{
+  color: white;
+  border: 1px solid grey;
+  list-style: none;
+  text-align: center;
+  font-size: 30px;
+  padding: 20px;
+  background-color: red;
 }
 
 /* The switch - the box around the slider */
@@ -104,6 +117,7 @@ input:checked + .slider:before {
   margin-left:auto;
   margin-right: auto;
   width: fit-content;
+ width: max-content;
   display: flex;
   align-items: center;
   margin-top: 20px;
@@ -111,13 +125,15 @@ input:checked + .slider:before {
 
 .winLose{
   width: fit-content;
+ width: max-content;
   margin-left: auto;
   margin-right: auto;
   padding: 10px;
+  margin-bottom: 20px;
 }
 
 .bombCounter{
-  width: fit-content;
+  width: 125px;
   margin-left: auto;
   margin-right: auto;
   border: 5px solid black;
@@ -133,6 +149,7 @@ input:checked + .slider:before {
   .instructionBox{
     display: block;
     width: fit-content;
+   width: max-content;
     margin-right: auto;
     margin-left: auto;
     margin-bottom: 20px;
