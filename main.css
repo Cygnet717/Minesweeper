@@ -109,6 +109,13 @@ input:checked + .slider:before {
   margin-top: 20px;
 }
 
+.winLose{
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+}
+
 .bombCounter{
   width: fit-content;
   margin-left: auto;

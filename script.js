@@ -104,6 +104,11 @@ $(document).ready(function(){
     if(exploreFunctionToggle){
       if(event.target.value === 'b'){
       $(event.target).css({'background-color': 'red'})
+      $('.winLose').append('You Lose').css({
+        'color': 'red', 
+        'font-weight': 'bolder',
+        'border': '2px solid red'
+      })
     } else {
       $(event.target).css({'background-color': 'black'})
     }
