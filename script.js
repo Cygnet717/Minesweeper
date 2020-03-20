@@ -97,9 +97,12 @@ function fillGameBox(mineField){
 }
 
 $(document).ready(function(){
+  let bombCount = 5;
+  $('.bombCounter').append(`Bombs Left: ${bombCount}`)
 
   //mouse controls
   $('.grid-item').on('click', event=> {  
+
     if(!exploreFunctionToggle){
       if(event.target.value === 'b'){
       $(event.target).css({'background-color': 'red'})
@@ -110,10 +113,16 @@ $(document).ready(function(){
       })
       $('.grid-item').css({'pointer-events': 'none'})
     } else {
-      $(event.target).css({'background-color': 'black'})
+      $(event.target).css({
+        'background-color': 'black',
+        'color': 'white'
+      })
     }
     return false;
     } else {
+      bombCount = bombCount -1;
+      $('.bombCounter').empty();
+      $('.bombCounter').append(`Bombs Left: ${bombCount}`)
       $(event.target).css({'background-color': 'orange', 'color': 'orange'})
     }
   })
@@ -131,14 +140,12 @@ $(document).ready(function(){
   })
 
   $('.sliderBox').on('touchstart', event=> {
-    console.log('slide')
     $('#checkbox').prop('checked', function( i, val ) {
       return !val;
     });
     exploreFunctionToggle = !exploreFunctionToggle
   })
 
-  
 
 })
 
