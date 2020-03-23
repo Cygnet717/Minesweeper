@@ -92,7 +92,7 @@ function fillGameBox(mineField){
   for(let i=0; i<mineField.length; i++){
     for(let j=0; j<mineField[i].length; j++){
       if(mineField[i][j] === 'b'){
-        gameBoxContents = gameBoxContents.concat(`<button value='${mineField[i][j]}' style='font-size: 0' class="grid-item"><img class='boom' alt='bomb' src='002-danger.png'></img>${mineField[i][j]}</button>`)
+  gameBoxContents = gameBoxContents.concat(`<button value='${mineField[i][j]}' style='font-size: 0' class="grid-item"><img class='boom' style='border: 1px solid grey' alt='bomb' src='002-danger.png'></img>${mineField[i][j]}</button>`)
       }else{
         gameBoxContents = gameBoxContents.concat(`<button value='${mineField[i][j]}' class="grid-item">${mineField[i][j]}</button>`)
       }

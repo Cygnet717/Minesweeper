@@ -89,6 +89,8 @@ footer{
 .flag{
   position: relative;
   left: -5px;
+  border: 1px solid grey;
+
 }
 
 /* The switch - the box around the slider */
