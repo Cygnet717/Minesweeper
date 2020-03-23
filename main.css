@@ -20,11 +20,9 @@ body{
 }
 
 footer{
- 
   padding: 20px;
   background:#DFEBF2;
-  
-
+  margin-top: 50px;;
 }
 
 .creditLinks{
@@ -43,9 +41,9 @@ footer{
 .gamebox{
   display: grid;
   grid-template-columns: 60px 60px 60px 60px; /*4 autos means 4 columns*/
+  grid-gap: 2px;
   background-color: rgb(75, 70, 110);
   padding: 10px;
-
   width: fit-content;
   width: max-content;
   margin-left: auto;
@@ -70,7 +68,7 @@ footer{
   text-align: center;
   font-size: 30px;
   padding: 20px;
-  background-color: rgb(94, 70, 99);
+  background-color: green;
   position: relative;
 }
 
