@@ -7,6 +7,7 @@ h1{
   width: max-content;
   margin-left: auto;
   margin-right: auto;
+  font-family: 'Josefin Slab', serif;
 }
 
 body{
@@ -22,7 +23,8 @@ body{
 footer{
   padding: 20px;
   background:#DFEBF2;
-  margin-top: 50px;;
+  margin-top: 50px;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .creditLinks{
@@ -41,7 +43,7 @@ footer{
 .gamebox{
   display: grid;
   grid-template-columns: 60px 60px 60px 60px; /*4 autos means 4 columns*/
-  grid-gap: 2px;
+  grid-gap: 4px;
   background-color: rgb(75, 70, 110);
   padding: 10px;
   width: fit-content;
@@ -51,13 +53,14 @@ footer{
 }
 
 .grid-item{
-  
+  border: none;
   color: white;
   list-style: none;
   text-align: center;
   font-size: 30px;
   padding: 20px;
   background-color: white;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .boom{
@@ -143,8 +146,12 @@ input:checked + .slider:before {
 }
 
 .label{
-  padding: 10px;
+  width: 80px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
   display: inline-block;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .instructionBox{
@@ -173,13 +180,14 @@ input:checked + .slider:before {
 }
 
 .bombCounter{
-  width: 125px;
+  width: 135px;
   margin-left: auto;
   margin-right: auto;
   border: 5px solid rgb(94, 70, 99);
   background-color: #DFEBF2;
   padding: 10px;
   margin-top: 10px;
+  font-family: 'Open Sans', sans-serif;
 }
 
 @media (hover: hover){
