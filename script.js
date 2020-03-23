@@ -99,10 +99,11 @@ function fillGameBox(mineField){
 $(document).ready(function(){
   let bombCount = 5;
   $('.bombCounter').append(`Bombs Left: ${bombCount}`)
+  let winCoundDown = 15;
 
+  //game controls
   //mouse controls
   $('.grid-item').on('click', event=> { 
-
     if(!exploreFunctionToggle){//if exploring mode
       if($(event.target).attr('class') === 'grid-item flagged'){//has been flagged
         return;
@@ -116,10 +117,16 @@ $(document).ready(function(){
             })
           $('.grid-item').css({'pointer-events': 'none'})
         } else {
+          winCoundDown = winCoundDown - 1;
           $(event.target).css({//not a bomb => explore space
               'background-color': 'black',
               'color': 'white'
             })
+        }
+        //win condition
+        if(winCoundDown === 0){
+          $('.grid-item').css({'pointer-events': 'none'})
+          $('.winLose').append('YOU WIN!').css({'border': '2px solid green'})
         }
       }
     } else if(exploreFunctionToggle){//if flagging mode
