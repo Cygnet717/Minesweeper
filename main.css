@@ -53,23 +53,11 @@ footer{
 .grid-item{
   
   color: white;
-  border: 1px solid grey;
   list-style: none;
   text-align: center;
   font-size: 30px;
   padding: 20px;
   background-color: white;
-}
-
-.loseGrid-item{
-  color: white;
-  border: 1px solid rgb(94, 70, 99);
-  list-style: none;
-  text-align: center;
-  font-size: 30px;
-  padding: 20px;
-  background-color: green;
-  position: relative;
 }
 
 .boom{
