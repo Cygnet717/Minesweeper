@@ -85,12 +85,18 @@ function addNumbersToMineField(rowed){
   return fillGameBox(rowed)
 };
 
+
 //populate game borad with numbers and bombs
 function fillGameBox(mineField){
   let gameBoxContents = '';
   for(let i=0; i<mineField.length; i++){
     for(let j=0; j<mineField[i].length; j++){
-      gameBoxContents = gameBoxContents.concat(`<button value='${mineField[i][j]}' class="grid-item">${mineField[i][j]}</button>`)
+      if(mineField[i][j] === 'b'){
+        gameBoxContents = gameBoxContents.concat(`<button value='${mineField[i][j]}' style='font-size: 0' class="grid-item"><img class='boom' alt='bomb' src='002-danger.png'></img>${mineField[i][j]}</button>`)
+      }else{
+        gameBoxContents = gameBoxContents.concat(`<button value='${mineField[i][j]}' class="grid-item">${mineField[i][j]}</button>`)
+      }
+      
     }
   }
   $('.gamebox').append(gameBoxContents)
@@ -109,59 +115,69 @@ $(document).ready(function(){
         return;
       } else {//has not been flagged
         if(event.target.value === 'b'){//if value is a bomb => end game
-          $(event.target).css({'background-color': 'red'})
+          $(event.target).css({'background-color': 'rgb(184, 18, 27)', 'font-size': '0'})
+          $('img').remove('.flag')
+          $('.boom').css({'display': 'inline'})
           $('.winLose').append('You Lose').css({
-              'color': 'red', 
+              'background': 'rgb(184, 18, 27)', 
               'font-weight': 'bolder',
-              'border': '2px solid red'
             })
           $('.grid-item').css({'pointer-events': 'none'})
         } else {
           winCoundDown = winCoundDown - 1;
           $(event.target).css({//not a bomb => explore space
               'background-color': 'black',
-              'color': 'white'
+              'color': 'white',
+              'pointer-events': 'none'
             })
         }
         //win condition
         if(winCoundDown === 0){
           $('.grid-item').css({'pointer-events': 'none'})
-          $('.winLose').append('YOU WIN!').css({'border': '2px solid green'})
+          $('.winLose').append('YOU WIN!').css({
+            'border': '2px solid #B5ACF2', 
+            'background-color': '#DDC8E1',
+          })
         }
       }
     } else if(exploreFunctionToggle){//if flagging mode
       if($(event.target).attr('class') === 'grid-item flagged'){//it is flagged => unflag it
-        bombCount = bombCount +1;
-        $('.bombCounter').empty();
-        $('.bombCounter').append(`Bombs Left: ${bombCount}`)
+        updateBombCounter(+1);
         $(event.target).removeClass('flagged')
-        $(event.target).css({'background-color': 'white', 'color': 'white'})
+        $(event.target).children('.flag').remove()
+      } else if($(event.target).attr('class') === 'flag'){
+        updateBombCounter(+1);
+        $(event.target).parent().removeClass('flagged')
+        $(event.target).remove()
       } else {//it is not flagged => flag it
-        bombCount = bombCount -1;
-        $('.bombCounter').empty();
-        $('.bombCounter').append(`Bombs Left: ${bombCount}`)
-        $(event.target).addClass('flagged')
-        $(event.target).css({'background-color': 'orange', 'color': 'orange'})
+        updateBombCounter(-1);
+        $(event.target).addClass('flagged').append('<img class="flag" alt="flag" src="003-problem.png"/>')
+        
       }
     }
     
   })
 
+  function updateBombCounter(count){
+    bombCount= bombCount + count;
+    $('.bombCounter').empty();
+    $('.bombCounter').append(`Bombs Left: ${bombCount}`)
+  }
+
   $('.grid-item').on('contextmenu', e=>{
     e.preventDefault();
     if($(event.target).attr('class') === 'grid-item flagged'){//it is flagged => unflag it
-      bombCount = bombCount +1;
-      $('.bombCounter').empty();
-      $('.bombCounter').append(`Bombs Left: ${bombCount}`)
-      $(event.target).removeClass('flagged')
-      $(event.target).css({'background-color': 'white', 'color': 'white'})
-    } else {//it is not flagged => flag it
-      bombCount = bombCount -1;
-      $('.bombCounter').empty();
-      $('.bombCounter').append(`Bombs Left: ${bombCount}`)
-      $(event.target).addClass('flagged')
-      $(event.target).css({'background-color': 'orange', 'color': 'orange'})
-    }
+      updateBombCounter(+1);
+        $(event.target).removeClass('flagged')
+        $(event.target).children('.flag').remove()
+      } else if($(event.target).attr('class') === 'flag'){
+        updateBombCounter(+1);
+        $(event.target).parent().removeClass('flagged')
+        $(event.target).remove()
+      } else {//it is not flagged => flag it
+        updateBombCounter(-1);
+        $(event.target).addClass('flagged').append('<img class="flag" alt="flag" src="003-problem.png"/>')
+      }
   })
 
   //touch screen controls

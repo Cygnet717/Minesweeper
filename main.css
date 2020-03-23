@@ -9,10 +9,41 @@ h1{
   margin-right: auto;
 }
 
+body{
+  background-image: url(trianglebackground.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+footer{
+ 
+  padding: 20px;
+  background:#DFEBF2;
+  
+
+}
+
+.creditLinks{
+  background-color:black;
+  color:white;
+  text-decoration:none;
+  padding:4px 6px;
+  font-family:-apple-system, BlinkMacSystemFont, San Francisco, Helvetica Neue, Helvetica, Ubuntu, Roboto, Noto, Segoe UI, Arial, sans-serif;
+  font-size:12px;
+  font-weight:bold;
+  line-height:1.2;
+  display:inline-block;
+  border-radius:3px
+}
+
 .gamebox{
   display: grid;
   grid-template-columns: 60px 60px 60px 60px; /*4 autos means 4 columns*/
-  background-color: black;
+  background-color: rgb(75, 70, 110);
   padding: 10px;
 
   width: fit-content;
@@ -22,6 +53,7 @@ h1{
 }
 
 .grid-item{
+  
   color: white;
   border: 1px solid grey;
   list-style: none;
@@ -33,12 +65,30 @@ h1{
 
 .loseGrid-item{
   color: white;
-  border: 1px solid grey;
+  border: 1px solid rgb(94, 70, 99);
   list-style: none;
   text-align: center;
   font-size: 30px;
   padding: 20px;
-  background-color: red;
+  background-color: rgb(94, 70, 99);
+  position: relative;
+}
+
+.boom{
+  display: none;
+  position: relative;
+  left: -5px;
+}
+
+.flagged{
+  font-size: 0;
+  background-color: #DDC8E1;
+  color: #DDC8E1;
+}
+
+.flag{
+  position: relative;
+  left: -5px;
 }
 
 /* The switch - the box around the slider */
@@ -64,7 +114,7 @@ h1{
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: red;
+  background-color: rgb(107, 41, 44);
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -82,11 +132,11 @@ h1{
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: rgb(125, 108, 240);
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px rgb(125, 108, 240);
 }
 
 input:checked + .slider:before {
@@ -124,19 +174,22 @@ input:checked + .slider:before {
 }
 
 .winLose{
-  width: fit-content;
- width: max-content;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100px;
+  text-align: center;
   padding: 10px;
-  margin-bottom: 20px;
+  position: fixed;
+  left: 50%;
+  margin-left: -50px;
+  top: 25%;
+  z-index: 2;
 }
 
 .bombCounter{
   width: 125px;
   margin-left: auto;
   margin-right: auto;
-  border: 5px solid black;
+  border: 5px solid rgb(94, 70, 99);
+  background-color: #DFEBF2;
   padding: 10px;
   margin-top: 10px;
 }
