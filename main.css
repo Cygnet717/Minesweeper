@@ -65,8 +65,7 @@ footer{
 
 .boom{
   display: none;
-  position: relative;
-  left: -5px;
+  margin-left: 5px;
 }
 
 .flagged{
@@ -76,10 +75,7 @@ footer{
 }
 
 .flag{
-  position: relative;
-  left: -5px;
-  border: 1px solid grey;
-
+  margin-left: 5px;  
 }
 
 /* The switch - the box around the slider */
