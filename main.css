@@ -166,14 +166,17 @@ input:checked + .slider:before {
 }
 
 .winLose{
-  width: 100px;
+  width: 150px;
   text-align: center;
-  padding: 10px;
+  padding: 20px;
   position: fixed;
   left: 50%;
-  margin-left: -50px;
+  margin-left: -75px;
   top: 25%;
   z-index: 2;
+  font-size: larger;
+  font-family: 'Josefin Slab', serif;
+  font-weight: bolder;
 }
 
 .bombCounter{

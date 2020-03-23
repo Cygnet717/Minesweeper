@@ -117,10 +117,10 @@ $(document).ready(function(){
         if(event.target.value === 'b'){//if value is a bomb => end game
           $(event.target).css({'background-color': 'rgb(184, 18, 27)', 'font-size': '0'})
           $('img').remove('.flag')
-          $('.detonate').empty().append("<img class='boom' alt='bomb' src='002-danger.png'></img>")
+          $('.detonate').empty().append("<img class='boom' alt='bomb' src='002-danger.png'/>")
           $('.winLose').append('You Lose').css({
               'background': 'rgb(184, 18, 27)', 
-              'font-weight': 'bolder',
+              'border': '2px solid rgb(75, 70, 110)'
             })
           $('.grid-item').css({'pointer-events': 'none'})
         } else {
@@ -135,8 +135,8 @@ $(document).ready(function(){
         if(winCoundDown === 0){
           $('.grid-item').css({'pointer-events': 'none'})
           $('.winLose').append('YOU WIN!').css({
-            'border': '2px solid #B5ACF2', 
-            'background-color': '#DDC8E1',
+            'background-color': 'rgb(233, 233, 20)',
+            'border': '2px solid rgb(75, 70, 110)',
           })
         }
       }
