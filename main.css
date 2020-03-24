@@ -21,9 +21,12 @@ body{
 }
 
 footer{
+  position: static;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: small;
   padding: 20px;
   background:#DFEBF2;
-  margin-top: 50px;
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -187,6 +190,7 @@ input:checked + .slider:before {
   background-color: #DFEBF2;
   padding: 10px;
   margin-top: 10px;
+  margin-bottom: 100px;
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -194,7 +198,14 @@ input:checked + .slider:before {
   .sliderBox{
     display: none;
   }
-
+  
+  footer{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
+  
   .instructionBox{
     display: block;
     width: fit-content;
