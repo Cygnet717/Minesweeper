@@ -100,6 +100,7 @@ $(document).ready(function(){
         
       }
     }
+    $('.gamebox').empty()
     $('.gamebox').append(gameBoxContents);
   }
 
@@ -109,7 +110,7 @@ $(document).ready(function(){
 
   //game controls
   //mouse controls
-  $('.grid-item').on('click', event=> { 
+  $('.gamebox').on('click', '.grid-item', event=> { 
     if(!exploreFunctionToggle){//if exploring mode
       if($(event.target).attr('class') === 'grid-item flagged'){//has been flagged
         return;
@@ -191,7 +192,6 @@ $(document).ready(function(){
     });
     exploreFunctionToggle = !exploreFunctionToggle;
   })
+
+  createMineField(20, 5);
 })
-
-
-createMineField(20, 5);
