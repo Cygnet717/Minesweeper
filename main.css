@@ -184,14 +184,36 @@ input:checked + .slider:before {
 
 .bombCounter{
   width: 135px;
-  margin-left: auto;
-  margin-right: auto;
+  
   border: 5px solid rgb(94, 70, 99);
   background-color: #DFEBF2;
   padding: 10px;
-  margin-top: 10px;
-  margin-bottom: 100px;
+  
   font-family: 'Open Sans', sans-serif;
+}
+
+.bottomBox{
+  display: flex;
+  flex-direction: row;
+ 
+  justify-content: space-evenly;
+  max-width: 400px;
+  margin: 10px auto 100px auto;
+}
+
+.newGame{
+  width: max-content;
+  display: inline-block;
+}
+
+.button{
+  font-family: 'Open Sans', sans-serif;
+  border: 5px solid rgb(94, 70, 99);
+  background-color: #DFEBF2;
+  width: 135px;
+  padding: 10px;
+  font-size: 16px;
+  box-shadow: 5px 5px 10px  rgb(66, 29, 73);
 }
 
 @media (hover: hover){
