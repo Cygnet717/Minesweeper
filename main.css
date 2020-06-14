@@ -200,13 +200,20 @@ input:checked + .slider:before {
 
 .nonogram{
   margin: 0px auto 100px auto;
+  position: relative;
 }
 
 .nonogram:hover .hovermessage{
   display: block;
   position: absolute;
-  border: 5px solid rgb(94, 70, 99);
+  left: -2px;
+  top: 50px;
+  border: 2px solid rgb(94, 70, 99);
   background-color: #DFEBF2;
+}
+
+.hovermessage{
+  display: none;
 }
 
 a{
@@ -230,9 +237,7 @@ a{
   box-shadow: 5px 5px 10px  rgb(66, 29, 73);
 }
 
-.hovermessage{
-  display: none;
-}
+
 
 @media (hover: hover){
   .sliderBox{
