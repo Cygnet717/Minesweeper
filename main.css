@@ -26,7 +26,7 @@ body{
   display: flex;
   flex-wrap: wrap;
   font-size: small;
-  padding: 20px;
+  padding: 8px;
   background:#DFEBF2;
   font-family: 'Open Sans', sans-serif;
 }
@@ -252,6 +252,8 @@ a{
     bottom: 0;
     right: 0;
     left: 0;
+    display: felx;
+    justify-content: space-around;
   }
   
   .instructionBox{
@@ -262,4 +264,5 @@ a{
     margin-left: auto;
     margin-bottom: 10px;
   }
+
 }
