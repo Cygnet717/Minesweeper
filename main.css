@@ -243,10 +243,6 @@ a{
 
 
 @media (hover: hover){
-  .sliderBox{
-    display: none;
-  }
-  
   .footerBox{
     position: fixed;
     bottom: 0;

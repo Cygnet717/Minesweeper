@@ -165,21 +165,21 @@ $(document).ready(function(){
 
   $('.grid-item').on('contextmenu', e=>{
     e.preventDefault();
-    if($(event.target).attr('class') === 'grid-item flagged'){//it is flagged => unflag it
+    if($(e.target).attr('class') === 'grid-item flagged'){//it is flagged => unflag it
       updateBombCounter(+1);
-      $(event.target).removeClass('flagged');
-      $(event.target).children('.flag').remove()
-    } else if($(event.target).attr('class') === 'flag'){
+      $(e.target).removeClass('flagged');
+      $(e.target).children('.flag').remove()
+    } else if($(e.target).attr('class') === 'flag'){
       updateBombCounter(+1);
-      $(event.target).parent().removeClass('flagged');
-      $(event.target).remove();
+      $(e.target).parent().removeClass('flagged');
+      $(e.target).remove();
     } else {//it is not flagged => flag it
       updateBombCounter(-1);
-      $(event.target).addClass('flagged').append('<img class="flag" alt="flag" src="003-problem.png"/>');
+      $(e.target).addClass('flagged').append('<img class="flag" alt="flag" src="003-problem.png"/>');
     }
   })
 
-  //touch screen controls
+
   let exploreFunctionToggle = false;
 
   $('input[type=checkbox]').on('click', event=> {
