@@ -169,6 +169,7 @@ input:checked + .slider:before {
 }
 
 .winLose{
+  display: none;
   width: 150px;
   text-align: center;
   padding: 20px;
@@ -180,6 +181,36 @@ input:checked + .slider:before {
   font-size: larger;
   font-family: 'Josefin Slab', serif;
   font-weight: bolder;
+  animation: fadeIn 2s;
+  -webkit-animation: fadeIn 2s;
+  -moz-animation: fadeIn 2s;
+  -o-animation: fadeIn 2s;
+  -ms-animation: fadeIn 2s;
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0}
+  100% {opacity: 1}
+}
+
+@-moz-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
 }
 
 .bombCounter{

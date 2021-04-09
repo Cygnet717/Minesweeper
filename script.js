@@ -116,12 +116,13 @@ $(document).ready(function(){
         return;
       } else {//has not been flagged
         if(event.target.value === 'b'){//if value is a bomb => end game
-          $(event.target).css({'background-color': 'rgb(224, 0, 0)', 'color': 'black'});
+          $(event.target).css({'background-color': '#FF0000', 'color': 'black'});
           $('i').remove('.flag');
           $('.detonate').empty().append("<i class='fa fa-bomb boom' aria-hidden='true'></i>");
           $('.winLose').append('You Lose').css({
-              'background': 'rgb(224, 0, 0)', 
-              'border': '2px solid rgb(75, 70, 110)'
+              'display': 'inherit',
+              'background': '#FF0000', 
+              'border': '4px solid rgb(75, 70, 110)'
             });
           $('.grid-item').css({'pointer-events': 'none'});
         } else {
@@ -136,6 +137,7 @@ $(document).ready(function(){
         if(winCoundDown === 0){
           $('.grid-item').css({'pointer-events': 'none'});
           $('.winLose').append('YOU WIN!').css({
+            'display': 'inherit',
             'background-color': 'rgb(233, 233, 20)',
             'border': '2px solid rgb(75, 70, 110)',
           });
