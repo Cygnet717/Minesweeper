@@ -64,25 +64,14 @@ body{
   list-style: none;
   text-align: center;
   font-size: 30px;
-  padding: 20px;
   background-color: white;
   font-family: 'Open Sans', sans-serif;
-}
-
-.boom{
-  position: relative;
-  left: -5px;
 }
 
 .flagged{
   font-size: 0;
   background-color: #DDC8E1;
   color: #DDC8E1;
-}
-
-.flag{
-  position: relative;
-  left: -5px;  
 }
 
 /* The switch - the box around the slider */
