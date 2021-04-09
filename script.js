@@ -116,11 +116,11 @@ $(document).ready(function(){
         return;
       } else {//has not been flagged
         if(event.target.value === 'b'){//if value is a bomb => end game
-          $(event.target).css({'background-color': 'rgb(184, 18, 27)', 'font-size': '0'});
-          $('img').remove('.flag');
-          $('.detonate').empty().append("<img class='boom' alt='bomb' src='002-danger.png'/>");
+          $(event.target).css({'background-color': 'rgb(224, 0, 0)', 'color': 'black'});
+          $('i').remove('.flag');
+          $('.detonate').empty().append("<i class='fa fa-bomb boom' aria-hidden='true'></i>");
           $('.winLose').append('You Lose').css({
-              'background': 'rgb(184, 18, 27)', 
+              'background': 'rgb(224, 0, 0)', 
               'border': '2px solid rgb(75, 70, 110)'
             });
           $('.grid-item').css({'pointer-events': 'none'});
@@ -152,7 +152,7 @@ $(document).ready(function(){
         $(event.target).remove();
       } else {//it is not flagged => flag it
         updateBombCounter(-1);
-        $(event.target).addClass('flagged').append('<img class="flag" alt="flag" src="003-problem.png"/>');
+        $(event.target).addClass('flagged').append('<i class="far fa-flag flag"></i>');
       }
     }
   })
@@ -175,7 +175,7 @@ $(document).ready(function(){
       $(e.target).remove();
     } else {//it is not flagged => flag it
       updateBombCounter(-1);
-      $(e.target).addClass('flagged').append('<img class="flag" alt="flag" src="003-problem.png"/>');
+      $(e.target).addClass('flagged').append('<i class="fa fa-flag flag" aria-hidden="true"></i>');
     }
   })
 

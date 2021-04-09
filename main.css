@@ -68,10 +68,18 @@ body{
   font-family: 'Open Sans', sans-serif;
 }
 
+.boom{
+  color: black;
+}
+
 .flagged{
   font-size: 0;
   background-color: #DDC8E1;
-  color: #DDC8E1;
+}
+
+.flag{
+  font-size: 28px;
+  color: black;
 }
 
 /* The switch - the box around the slider */
