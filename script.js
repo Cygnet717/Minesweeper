@@ -128,6 +128,7 @@ $(document).ready(function(){
         } else {
           winCoundDown = winCoundDown - 1;
           $(event.target).css({//not a bomb => explore space
+              'font-size': '30px',
               'background-color': 'black',
               'color': 'white',
               'pointer-events': 'none'
@@ -139,7 +140,7 @@ $(document).ready(function(){
           $('.winLose').append('YOU WIN!').css({
             'display': 'inherit',
             'background-color': 'rgb(233, 233, 20)',
-            'border': '2px solid rgb(75, 70, 110)',
+            'border': '4px solid rgb(75, 70, 110)',
           });
         }
       }
@@ -148,7 +149,7 @@ $(document).ready(function(){
         updateBombCounter(+1);
         $(event.target).removeClass('flagged');
         $(event.target).children('.flag').remove();
-      } else if($(event.target).attr('class') === 'flag'){
+      } else if($(event.target).attr('class') === 'far fa-flag flag'){
         updateBombCounter(+1);
         $(event.target).parent().removeClass('flagged');
         $(event.target).remove();
@@ -171,7 +172,7 @@ $(document).ready(function(){
       updateBombCounter(+1);
       $(e.target).removeClass('flagged');
       $(e.target).children('.flag').remove()
-    } else if($(e.target).attr('class') === 'flag'){
+    } else if($(e.target).attr('class') === 'fa fa-flag flag'){
       updateBombCounter(+1);
       $(e.target).parent().removeClass('flagged');
       $(e.target).remove();

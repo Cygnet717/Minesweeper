@@ -60,16 +60,16 @@ body{
 
 .grid-item{
   border: none;
-  color: white;
+  font-size: 0;
   list-style: none;
   text-align: center;
-  font-size: 30px;
   background-color: white;
   font-family: 'Open Sans', sans-serif;
 }
 
 .boom{
   color: black;
+  font-size: 30px;
 }
 
 .flagged{
@@ -78,7 +78,7 @@ body{
 }
 
 .flag{
-  font-size: 28px;
+  font-size: 30px;
   color: black;
 }
 
